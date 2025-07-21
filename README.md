@@ -13,7 +13,6 @@ This is a **proof-of-concept keylogger** built in Python. It logs keystrokes, sa
 - Saves logs to: `C:\Users\<Username>\Documents\logger.txt`  
 - Sends logs to a Telegram bot every 24 hours (customizable)  
 - Deletes log file after sending  
-- Exits automatically on `Esc` key press  
 - Supports `.env` config for secure credentials  
 - Compatible with `.exe` build using PyInstaller  
 
